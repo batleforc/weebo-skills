@@ -1,0 +1,29 @@
+<!-- @dsCard group="Spacing" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; }
+  .wrap { padding:24px 28px; font-family:var(--font-mono); }
+  .row { display:flex; gap:18px; align-items:flex-end; }
+  .b { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .box { width:80px; height:64px; background:var(--secondary); border:1px solid var(--primary); }
+  .lbl { font-size:10px; color:var(--muted-foreground); }
+  .lbl b { color:var(--foreground); display:block; }
+  .note { color:var(--accent); font-size:10px; margin-top:14px; letter-spacing:.1em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="row">
+    <div class="b"><div class="box" style="border-radius:var(--radius-sm)"></div><div class="lbl"><b>sm</b>1px</div></div>
+    <div class="b"><div class="box" style="border-radius:var(--radius)"></div><div class="lbl"><b>base</b>2px</div></div>
+    <div class="b"><div class="box" style="border-radius:var(--radius-lg)"></div><div class="lbl"><b>lg</b>4px</div></div>
+    <div class="b"><div class="box" style="border-radius:var(--radius-xl)"></div><div class="lbl"><b>xl</b>8px</div></div>
+  </div>
+  <div class="note">Deliberately sharp — radius is core to the cyberpunk feel</div>
+</div>
+</body>
+</html>

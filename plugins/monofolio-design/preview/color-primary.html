@@ -1,0 +1,34 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; }
+  .wrap { padding:22px 24px; font-family:var(--font-mono); }
+  .row { display:flex; gap:14px; }
+  .sw { flex:1; height:90px; border-radius:var(--radius-lg); display:flex; flex-direction:column; justify-content:flex-end; padding:10px; box-sizing:border-box; border:1px solid var(--border); }
+  .name { font-size:12px; font-weight:600; color:#fff; }
+  .val { font-size:9.5px; opacity:.7; color:#fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="row">
+    <div class="sw" style="background:var(--primary); box-shadow:var(--cyber-glow);">
+      <div class="name">Primary</div><div class="val">oklch(0.65 0.26 25)</div>
+    </div>
+    <div class="sw" style="background:var(--destructive);">
+      <div class="name">Destructive</div><div class="val">oklch(0.55 0.28 25)</div>
+    </div>
+    <div class="sw" style="background:var(--primary-foreground); border-color:var(--border);">
+      <div class="name" style="color:#111;">Primary&nbsp;Fg</div><div class="val" style="color:#111;">oklch(0.97 0.01 0)</div>
+    </div>
+    <div class="sw" style="background:var(--ring);">
+      <div class="name">Ring</div><div class="val">primary / 0.45</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- @dsCard group="Type" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; }
+  .wrap { padding:24px 28px; font-family:var(--font-mono); }
+  .scale { display:flex; align-items:baseline; gap:16px; color:var(--muted-foreground); font-size:11px; padding:5px 0; border-bottom:1px solid var(--border); }
+  .scale span:first-child { color:var(--foreground); width:140px; }
+  .w { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="scale"><span>JetBrains&nbsp;Mono 400</span><span>The quick brown fox — 0123456789</span></div>
+  <div class="scale"><span>JetBrains&nbsp;Mono 600</span><span class="w">cargo run -p content --bin content-build</span></div>
+  <div class="scale"><span>JetBrains&nbsp;Mono 800</span><span style="color:var(--primary); font-weight:800;">Max.</span></div>
+  <div class="scale" style="border:none;"><span style="font-family:var(--font-sans)">IBM Plex Sans 400</span><span style="font-family:var(--font-sans)">Made with ❤️ and too much coffee ☕</span></div>
+</div>
+</body>
+</html>

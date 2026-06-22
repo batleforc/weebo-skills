@@ -1,0 +1,38 @@
+<!-- @dsCard group="Brand" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  html,body { margin:0; }
+  .wrap { padding:24px 28px; }
+  .lbl { font-family:var(--font-mono); font-size:9.5px; color:var(--muted-foreground); letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; }
+  .row { display:flex; gap:14px; flex-wrap:wrap; }
+  .ic { width:38px; height:38px; border:1px solid var(--border); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; color:var(--primary); }
+  .ic svg { width:18px; height:18px; }
+  .ic.sprite svg { width:18px; height:18px; fill:var(--accent); }
+  .ic.brand svg { width:18px; height:18px; fill:var(--primary); }
+  .emoji { font-size:18px; line-height:38px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lbl">Lucide stroke icons (Rust/UI) · sprite glyphs · emoji-in-copy</div>
+  <div class="row">
+    <div class="ic brand"><svg viewBox="0 0 32 32"><path d="M16 0.396c-8.84 0-16 7.164-16 16 0 7.071 4.584 13.067 10.94 15.18 0.8 0.151 1.093-0.344 1.093-0.769 0-0.38-0.013-1.387-0.020-2.72-4.451 0.965-5.389-2.147-5.389-2.147-0.728-1.847-1.78-2.34-1.78-2.34-1.449-0.992 0.112-0.972 0.112-0.972 1.607 0.112 2.451 1.648 2.451 1.648 1.427 2.447 3.745 1.74 4.66 1.331 0.144-1.035 0.556-1.74 1.013-2.14-3.553-0.4-7.288-1.776-7.288-7.907 0-1.747 0.62-3.173 1.647-4.293-0.18-0.404-0.72-2.031 0.14-4.235 0 0 1.34-0.429 4.4 1.64 1.28-0.356 2.64-0.532 4-0.54 1.36 0.008 2.72 0.184 4 0.54 3.040-2.069 4.38-1.64 4.38-1.64 0.86 2.204 0.32 3.831 0.16 4.235 1.020 1.12 1.64 2.547 1.64 4.293 0 6.147-3.74 7.5-7.3 7.893 0.56 0.48 1.080 1.461 1.080 2.96 0 2.141-0.020 3.861-0.020 4.381 0 0.42 0.28 0.92 1.1 0.76 6.401-2.099 10.981-8.099 10.981-15.159 0-8.836-7.164-16-16-16z"></path></svg></div>
+    <div class="ic brand"><svg viewBox="0 0 32 32"><path d="M12 12h5.535v2.837h0.079c0.77-1.381 2.655-2.837 5.464-2.837 5.842 0 6.922 3.637 6.922 8.367v9.633h-5.769v-8.54c0-2.037-0.042-4.657-3.001-4.657-3.005 0-3.463 2.218-3.463 4.509v8.688h-5.767v-18z"></path><path d="M2 12h6v18h-6v-18z"></path><path d="M8 7c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path></svg></div>
+    <div class="ic"><i data-lucide="briefcase"></i></div>
+    <div class="ic"><i data-lucide="graduation-cap"></i></div>
+    <div class="ic"><i data-lucide="wrench"></i></div>
+    <div class="ic"><i data-lucide="mail"></i></div>
+    <div class="ic"><i data-lucide="map-pin"></i></div>
+    <div class="ic"><i data-lucide="git-branch"></i></div>
+    <div class="ic"><span class="emoji">👋</span></div>
+    <div class="ic"><span class="emoji">☕</span></div>
+  </div>
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

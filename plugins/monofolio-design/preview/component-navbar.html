@@ -1,0 +1,30 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; background:var(--background); }
+  .bar { display:flex; align-items:center; gap:22px; height:56px; padding:0 22px; border-bottom:1px solid var(--border); backdrop-filter:blur(8px); }
+  .logo { font-family:var(--font-mono); font-weight:700; font-size:19px; color:var(--primary); text-shadow:var(--cyber-glow); }
+  .nav { display:flex; gap:20px; }
+  .nav a { font-family:var(--font-sans); font-size:13px; color:var(--muted-foreground); font-weight:500; }
+  .nav a.active { color:var(--foreground); }
+  .spacer { flex:1; }
+  .search { width:170px; background:oklch(0.07 0.018 18 / 0.7); border:1px solid var(--border); border-radius:var(--radius); padding:7px 11px; font-family:var(--font-sans); font-size:12px; color:var(--muted-foreground); }
+  .lang { border:1px solid var(--border); border-radius:var(--radius); padding:6px 11px; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; color:var(--muted-foreground); }
+</style>
+</head>
+<body>
+<div class="bar cyber-grid-bg">
+  <span class="logo">Max.</span>
+  <nav class="nav">
+    <a class="active">Home</a><a>Projects</a><a>Tech map</a><a>Blog</a><a>Docs</a><a>About</a>
+  </nav>
+  <span class="spacer"></span>
+  <div class="search">Search a page...</div>
+  <div class="lang">EN</div>
+</div>
+</body>
+</html>

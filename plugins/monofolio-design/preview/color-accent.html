@@ -1,0 +1,35 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; }
+  .wrap { padding:22px 24px; font-family:var(--font-mono); }
+  .row { display:flex; gap:14px; align-items:center; }
+  .sw { width:120px; height:90px; border-radius:var(--radius-lg); display:flex; flex-direction:column; justify-content:flex-end; padding:10px; box-sizing:border-box; border:1px solid var(--border); }
+  .name { font-size:12px; font-weight:600; color:var(--foreground); }
+  .val { font-size:9.5px; opacity:.6; color:var(--foreground); }
+  .note { flex:1; color:var(--muted-foreground); font-size:11px; line-height:1.6; }
+  .note b { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="row">
+    <div class="sw" style="background:var(--accent); box-shadow:var(--steam-glow);">
+      <div class="name" style="color:#1a0e00;">Accent</div><div class="val" style="color:#1a0e00;">0.72 0.14 52</div>
+    </div>
+    <div class="sw" style="background:var(--muted-foreground);">
+      <div class="name" style="color:#111;">Muted&nbsp;Fg</div><div class="val" style="color:#111;">0.58 0.04 30</div>
+    </div>
+    <div class="note">
+      <b>Copper / amber accent</b> — the 30% steampunk half of the palette.
+      Reserved for dates, eyebrow labels &amp; secondary glow (<code style="font-size:10px">--steam-glow</code>).
+      Never competes with crimson for primary actions.
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; }
+  .wrap { padding:26px 28px; display:flex; flex-direction:column; gap:16px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .tech { display:inline-flex; align-items:center; padding:3px 10px; border-radius:var(--radius); border:1px solid var(--border); font-size:11px; color:var(--muted-foreground); font-family:var(--font-sans); }
+  .hash { display:inline-flex; align-items:center; padding:3px 10px; border-radius:var(--radius); border:1px solid oklch(0.65 0.26 25 / 0.3); font-size:11px; color:var(--primary); font-family:var(--font-sans); }
+  .lbl { font-family:var(--font-mono); font-size:9.5px; color:var(--muted-foreground); letter-spacing:.12em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="lbl" style="margin-bottom:8px;">Techno chips · neutral border</div>
+    <div class="row">
+      <span class="tech">Rust</span><span class="tech">Leptos</span><span class="tech">Kubernetes</span><span class="tech">ArgoCD</span>
+    </div>
+  </div>
+  <div>
+    <div class="lbl" style="margin-bottom:8px;">Tag chips · crimson #hashtag</div>
+    <div class="row">
+      <span class="hash">#gitops</span><span class="hash">#devops</span><span class="hash">#wasm</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

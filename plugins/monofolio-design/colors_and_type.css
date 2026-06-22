@@ -1,0 +1,214 @@
+/* ============================================================================
+   MONOFOLIO V2 — Design tokens
+   Maxime Leriche (Batleforc) — Cyberpunk × Steampunk portfolio
+   Source of truth: apps/frontend/style/main.css (monofolio-rs)
+   70% Cyberpunk (dark base, neon red/crimson, sharp geometry, circuit grids)
+   30% Steampunk (warm amber/copper brass accents)
+   ============================================================================ */
+
+/* ---- Fonts -----------------------------------------------------------------
+   The live site ships Tailwind's default system stacks (font-sans / font-mono).
+   This system substitutes named Google Fonts so artifacts render identically
+   everywhere. SUBSTITUTION — see README "Typography".
+     · Monospace  → JetBrains Mono  (logo, headings, UI labels, buttons, dates)
+     · Sans       → IBM Plex Sans   (body, hero display)
+---------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* === Sharp corners → cyberpunk feel === */
+  --radius: 0.125rem;            /* 2px  — base */
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);   /* 4px */
+  --radius-xl: calc(var(--radius) + 6px);   /* 8px — cards/media */
+
+  /* === Dark cyberpunk base (near-black, warm red undertone) === */
+  --background: oklch(0.07 0.018 18);
+  --foreground: oklch(0.93 0.018 25);
+  --card: oklch(0.10 0.018 18);
+  --card-foreground: oklch(0.93 0.018 25);
+  --popover: oklch(0.10 0.018 18);
+  --popover-foreground: oklch(0.93 0.018 25);
+
+  /* === Primary: neon red / crimson (cyberpunk) === */
+  --primary: oklch(0.65 0.26 25);
+  --primary-foreground: oklch(0.97 0.01 0);
+
+  /* === Secondary: dark elevated surface === */
+  --secondary: oklch(0.14 0.022 18);
+  --secondary-foreground: oklch(0.65 0.26 25);
+
+  /* === Muted === */
+  --muted: oklch(0.13 0.016 18);
+  --muted-foreground: oklch(0.58 0.04 30);
+
+  /* === Accent: warm copper / amber (steampunk brass) === */
+  --accent: oklch(0.72 0.14 52);
+  --accent-foreground: oklch(0.07 0.018 18);
+
+  /* === Destructive === */
+  --destructive: oklch(0.55 0.28 25);
+  --destructive-foreground: oklch(0.97 0.01 0);
+
+  /* === Borders & inputs (translucent crimson) === */
+  --border: oklch(0.65 0.26 25 / 0.22);
+  --input: oklch(0.65 0.26 25 / 0.12);
+  --ring: oklch(0.65 0.26 25 / 0.45);
+
+  /* === Chart palette (cyber-neon spectrum, red-anchored) === */
+  --chart-1: oklch(0.65 0.26 25);     /* crimson  */
+  --chart-2: oklch(0.72 0.14 52);     /* copper   */
+  --chart-3: oklch(0.72 0.18 305);    /* magenta  */
+  --chart-4: oklch(0.72 0.17 150);    /* green    */
+  --chart-5: oklch(0.80 0.17 196);    /* cyan     */
+
+  /* === Custom cyber / steam effect tokens === */
+  --cyber-glow: 0 0 6px oklch(0.65 0.26 25 / 0.65),
+                0 0 22px oklch(0.65 0.26 25 / 0.30);
+  --steam-glow: 0 0 6px oklch(0.72 0.14 52 / 0.60),
+                0 0 22px oklch(0.72 0.14 52 / 0.25);
+  --grid-line: oklch(0.65 0.26 25 / 0.06);
+
+  /* === Type families === */
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* === Type scale (rem) ===
+     Display uses sans-extrabold + tight tracking; headings use mono. */
+  --text-hero: 4.5rem;     /* 72px — hero name (sm:text-7xl)            */
+  --text-hero-sm: 3rem;    /* 48px — hero name mobile (text-5xl)        */
+  --text-h1: 2rem;         /* 32px                                      */
+  --text-h2: 1.5rem;       /* 24px — SectionTitle (text-2xl, mono)      */
+  --text-h3: 1.125rem;     /* 18px — card titles (text-lg)             */
+  --text-base: 1rem;       /* 16px — body                               */
+  --text-sm: 0.875rem;     /* 14px — secondary body / nav               */
+  --text-xs: 0.75rem;      /* 12px — meta                               */
+  --text-2xs: 0.7rem;      /* 11.2px — tags / eyebrow labels            */
+
+  /* === Spacing rhythm (Tailwind-derived, the site's common steps) === */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;   /* section horizontal padding (px-5) */
+  --space-6: 1.5rem;    /* card padding (p-6) */
+  --space-8: 2rem;
+  --space-16: 4rem;     /* vertical section padding (py-16) */
+  --container: 64rem;   /* max-w-5xl — page content width */
+}
+
+/* ============================================================================
+   SEMANTIC ELEMENT STYLES — apply these directly or copy into artifacts
+   ============================================================================ */
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hero display name — extrabold sans, gradient clip foreground→primary */
+.t-hero {
+  font-family: var(--font-sans);
+  font-size: var(--text-hero);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  background: linear-gradient(to bottom right, var(--foreground), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section heading — mono, with a short neon underline accent + glow */
+.t-h2,
+h2.t-section {
+  font-family: var(--font-mono);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-shadow: var(--cyber-glow);
+}
+
+.t-h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Eyebrow / meta label — mono, uppercase, wide tracking, copper accent */
+.t-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+}
+
+.t-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.t-mono {
+  font-family: var(--font-mono);
+}
+
+code,
+.t-code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.1em 0.4em;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: oklch(0.65 0.26 25 / 0.8); }
+
+/* ============================================================================
+   SIGNATURE EFFECT UTILITIES (verbatim from main.css)
+   ============================================================================ */
+
+/* Circuit-grid background pattern */
+.cyber-grid-bg {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.cyber-text-glow { text-shadow: var(--cyber-glow); }
+.cyber-glow { box-shadow: var(--cyber-glow); }
+.steam-glow { box-shadow: var(--steam-glow); }
+
+/* Glitch flicker for hero heading */
+.glitch { animation: glitch-flicker 6s infinite; }
+@keyframes glitch-flicker {
+  0%, 90%, 100% { text-shadow: var(--cyber-glow); opacity: 1; }
+  92%  { text-shadow: none; opacity: 0.85; clip-path: inset(20% 0 30% 0); }
+  93%  { text-shadow: var(--cyber-glow); opacity: 1; clip-path: none; }
+  95%  { text-shadow: none; opacity: 0.9; clip-path: inset(60% 0 10% 0); }
+  96%  { text-shadow: var(--cyber-glow); opacity: 1; clip-path: none; }
+}
+
+/* Decorative morphing blob */
+.hero-blob { animation: blob-morph 8s ease-in-out infinite; }
+@keyframes blob-morph {
+  0%, 100% { border-radius: 50% 45% 55% 48% / 48% 55% 45% 52%; }
+  33% { border-radius: 55% 42% 48% 52% / 52% 48% 58% 46%; }
+  66% { border-radius: 45% 55% 52% 48% / 46% 52% 48% 56%; }
+}

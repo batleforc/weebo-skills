@@ -1,0 +1,13 @@
+{
+    "name": "weebo",
+    "owner": {
+        "name": "batleforc"
+    },
+    "plugins": [
+        {
+            "name": "monofolio-design",
+            "source": "./plugins/monofolio-design",
+            "description": "Weebo monofolio design system"
+        }
+    ]
+}

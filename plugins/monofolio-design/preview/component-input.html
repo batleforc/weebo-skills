@@ -1,0 +1,23 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; }
+  .wrap { padding:26px 28px; display:flex; flex-direction:column; gap:14px; }
+  .field { width:320px; background:oklch(0.07 0.018 18 / 0.7); border:1px solid var(--border); border-radius:var(--radius); padding:10px 13px; font-family:var(--font-sans); font-size:13px; color:var(--muted-foreground); }
+  .field.focus { border-color:var(--primary); color:var(--foreground); }
+  .lbl { font-family:var(--font-mono); font-size:9.5px; color:var(--muted-foreground); letter-spacing:.12em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lbl">Search input · default</div>
+  <div class="field">Search a page...</div>
+  <div class="lbl">Search input · focus (border → primary)</div>
+  <div class="field focus">kubernetes<span style="color:var(--primary)">▋</span></div>
+</div>
+</body>
+</html>
