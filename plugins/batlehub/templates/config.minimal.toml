@@ -1,0 +1,43 @@
+# BatleHub minimal config — local development
+# Copy to config.toml and adjust as needed.
+# Add config.toml to .gitignore before committing.
+
+[server]
+port = 8080
+bind = "0.0.0.0"
+
+[database]
+url = "postgresql://batlehub:changeme@localhost:5432/batlehub"
+
+[cache]
+type = "memory"
+
+[[auth]]
+type = "token"
+
+[[auth.tokens]]
+value = "dev-admin-token"
+role = "admin"
+user_id = "admin"
+
+[[auth.tokens]]
+value = "dev-read-token"
+role = "user"
+user_id = "readonly"
+
+[storage]
+type = "filesystem"
+path = "./cache"
+
+# Add more [[registries]] blocks for additional package managers.
+# Supported types: npm, cargo, go, maven, terraform, rubygems,
+#                  composer, pypi, conda, github, openvsx, vscode
+
+[[registries]]
+type = "npm"
+name = "npm"
+
+[registries.rbac]
+anonymous = ["releases:read", "source:read"]
+user      = ["releases:read", "source:read"]
+admin     = ["*"]

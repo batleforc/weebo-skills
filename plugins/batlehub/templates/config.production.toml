@@ -1,0 +1,113 @@
+# BatleHub production config template
+# Secrets should be injected via environment variables:
+#   PROXY_CACHE__DATABASE__URL
+#   PROXY_CACHE__STORAGE__ACCESS_KEY_ID
+#   PROXY_CACHE__STORAGE__SECRET_ACCESS_KEY
+#   etc.
+# Never commit this file with real credentials.
+
+[server]
+port = 8080
+bind = "0.0.0.0"
+# static_dir = "./ui/dist"   # uncomment if serving the built frontend
+
+[database]
+url = "postgresql://batlehub:CHANGE_ME@postgres:5432/batlehub"
+max_connections = 20
+
+[cache]
+type = "redis"
+url = "redis://redis:6379"
+
+# --- Authentication ---
+# Option A: Static tokens (simple, good for internal/CI use)
+[[auth]]
+type = "token"
+
+[[auth.tokens]]
+value = "CHANGE_ME_ADMIN_TOKEN"
+role = "admin"
+user_id = "admin"
+
+[[auth.tokens]]
+value = "CHANGE_ME_CI_TOKEN"
+role = "user"
+user_id = "ci"
+
+# Option B: OIDC (uncomment and fill in to use instead of/alongside tokens)
+# [[auth]]
+# type = "oidc"
+# issuer = "https://auth.example.com/application/o/batlehub/"
+# client_id = "batlehub"
+# client_secret = "CHANGE_ME"
+
+# Option C: Kubernetes ServiceAccount (for in-cluster deployments)
+# [[auth]]
+# type = "kubernetes"
+
+# Option D: GitHub Actions OIDC (for CI pipelines)
+# [[auth]]
+# type = "github_actions"
+
+# --- Storage ---
+# Option A: S3-compatible (recommended for production)
+[storage]
+type = "s3"
+bucket = "batlehub-artifacts"
+region = "us-east-1"
+endpoint = "https://s3.amazonaws.com"
+access_key_id = "CHANGE_ME"
+secret_access_key = "CHANGE_ME"
+
+# Option B: Filesystem (comment out S3 block above and uncomment this)
+# [storage]
+# type = "filesystem"
+# path = "/data/cache"
+
+# --- Registries ---
+# Add/remove [[registries]] blocks to match your stack.
+
+[[registries]]
+type = "npm"
+name = "npm"
+
+[registries.rbac]
+anonymous = []
+user      = ["releases:read", "source:read"]
+admin     = ["*"]
+
+[[registries]]
+type = "cargo"
+name = "cargo"
+
+[registries.rbac]
+anonymous = []
+user      = ["releases:read", "source:read"]
+admin     = ["*"]
+
+[[registries]]
+type = "pypi"
+name = "pypi"
+
+[registries.rbac]
+anonymous = []
+user      = ["releases:read", "source:read"]
+admin     = ["*"]
+
+[[registries]]
+type = "go"
+name = "go"
+
+[registries.rbac]
+anonymous = []
+user      = ["releases:read", "source:read"]
+admin     = ["*"]
+
+[[registries]]
+type = "maven"
+name = "maven"
+
+[registries.rbac]
+anonymous = []
+user      = ["releases:read", "source:read"]
+admin     = ["*"]

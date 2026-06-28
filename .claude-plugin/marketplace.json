@@ -8,6 +8,11 @@
             "name": "monofolio-design",
             "source": "./plugins/monofolio-design",
             "description": "Weebo monofolio design system"
+        },
+        {
+            "name": "batlehub",
+            "source": "./plugins/batlehub",
+            "description": "BatleHub setup assistant — configure the server, registries, and CLI"
         }
     ]
 }

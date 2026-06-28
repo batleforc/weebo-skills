@@ -3,7 +3,7 @@
 ## Skills
 
 - [x] Weebo Design System
-- [ ] Batlehub
+- [x] Batlehub
 - [ ] Weebo-SI
 
 ## Useful Link

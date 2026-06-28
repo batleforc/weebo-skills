@@ -1,0 +1,5 @@
+{
+  "name": "batlehub",
+  "description": "Setup assistant for BatleHub — a self-hosted package registry proxy and cache. Guides developers through configuring the BatleHub server, defining registries (npm, Cargo, Go, PyPI, Maven, etc.), and setting up batlehub-cli to interact with the instance.",
+  "version": "1.0.0"
+}

@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: batlehub
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: batlehub
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U batlehub"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  batlehub:
+    image: ghcr.io/batleforc/batlehub:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.toml:/app/config.toml:ro
+      - artifact_cache:/app/cache
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # Override individual config values via env vars without touching config.toml:
+    # environment:
+    #   PROXY_CACHE__DATABASE__URL: postgresql://batlehub:changeme@postgres:5432/batlehub
+    #   PROXY_CACHE__SERVER__PORT: "8080"
+
+volumes:
+  postgres_data:
+  artifact_cache:
